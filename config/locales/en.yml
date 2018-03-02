@@ -1,0 +1,33 @@
+en:
+  action_column: Actions
+  confirm_delete_named: "Really delete '%{name}'?"
+  time_ago: "%{time} ago"
+  buttons:
+    create_model: "Create %{model}"
+    save: "Save"
+    edit: "Edit"
+    delete: "Delete"
+    meters: "Meters"
+    readings: "All Readings"
+  flashs:
+    created_model: "%{model} was created."
+    created_name_record: "Name Record was created. The password is: %{secret}"
+    updated_model: "%{model} was updated."
+    destroyed_model: "%{model} was deleted."
+  titles:
+    brand: Dynamic DNS
+    new_model: "New %{model}"
+    edit_model: "Edit %{model}"
+    destroy_model: "Delete %{model}"
+    readings_for_meter: "Readings for %{meter}"
+  activerecord:
+    models:
+      name_record:
+        one: DNS Record
+        other: DNS Records
+    attributes:
+      name_record:
+        fqdn: Domain name
+        client_id: Client ID
+        ipv4: IPv4 adress
+        ipv6: IPv6 adress

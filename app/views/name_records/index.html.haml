@@ -1,0 +1,24 @@
+%h1= NameRecord.model_name.human(count: 2)
+
+.row
+  %table.table
+    %thead
+      %th= NameRecord.human_attribute_name(:fqdn)
+      %th= NameRecord.human_attribute_name(:ipv4)
+      %th= NameRecord.human_attribute_name(:ipv6)
+      %th= I18n.t('action_column')
+    %tbody
+      - @name_records.each do |name_record|
+        %tr
+          %td= name_record.fqdn
+          %td= name_record.ipv4
+          %td= name_record.ipv6
+          %td
+            = link_to I18n.t('buttons.edit'),
+                      edit_name_record_path(name_record),
+                      class: 'btn btn-primary'
+
+.row
+  .col-md-2
+    %a.btn.btn-primary{href: new_name_record_path}
+      = I18n.t('buttons.create_model', model: NameRecord.model_name.human)
