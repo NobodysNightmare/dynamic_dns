@@ -27,5 +27,7 @@ module Sprit
     config.time_zone = 'Europe/Berlin'
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
+
+    config.nsupdate_key = ENV.fetch('NSUPDATE_KEY')
   end
 end

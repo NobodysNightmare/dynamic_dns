@@ -29,7 +29,7 @@ class NameRecordsController < ApplicationController
 
   def update
     name_record = NameRecord.find(params[:id])
-    if site.update(name_record_params)
+    if name_record.update(name_record_params)
       flash[:success] = I18n.t('flashs.updated_model',
                                model: NameRecord.model_name.human)
     else

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class NameRecord < ApplicationRecord
+  after_save :sync
+
   def authentic?(id, secret)
     return false unless client_id == id
 
@@ -19,5 +21,9 @@ class NameRecord < ApplicationRecord
   def client_secret_hash=(_value)
     @client_secret = nil
     super
+  end
+
+  def sync
+    NameServiceUpdater.sync(self)
   end
 end
