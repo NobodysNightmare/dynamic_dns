@@ -6,11 +6,8 @@ class NameServiceUpdater
   class << self
     def sync(name_record)
       NameServiceClient.connect(Rails.application.config.nsupdate_key) do |c|
-        c.delete(name_record.fqdn, 'A')
-        c.add(name_record.fqdn, 'A', RECORD_TTL, name_record.ipv4) if name_record.ipv4.present?
-
-        c.delete(name_record.fqdn, 'AAAA')
-        c.add(name_record.fqdn, 'AAAA', RECORD_TTL, name_record.ipv6) if name_record.ipv6.present?
+        c.replace(name_record.fqdn, 'A', RECORD_TTL, name_record.ipv4)
+        c.replace(name_record.fqdn, 'AAAA', RECORD_TTL, name_record.ipv6)
       end
     end
   end

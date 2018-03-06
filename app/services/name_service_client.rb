@@ -26,6 +26,11 @@ class NameServiceClient
     @nsupdate.puts "update delete #{fqdn} #{record_type}"
   end
 
+  def replace(fqdn, record_type, ttl, value)
+    delete(fqdn, record_type)
+    add(fqdn, record_type, ttl, value) if value.present?
+  end
+
   def send
     @nsupdate.puts 'send'
   end
