@@ -20,6 +20,8 @@ module Api
 
     def updated_record
       @updated_record ||= NameRecord.find_by!(fqdn: params[:fqdn])
+    rescue ActiveRecord::RecordNotFound
+      raise Error404, "Domain #{params[:fqdn]} is unknown."
     end
 
     def client_id
