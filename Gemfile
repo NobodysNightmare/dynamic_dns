@@ -23,6 +23,9 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+# Application monitoring
+gem 'sentry-raven'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'database_cleaner'
