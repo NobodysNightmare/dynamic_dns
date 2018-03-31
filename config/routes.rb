@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :name_records, only: [] do
       collection do
-        post '/', action: 'update_record'
+        match '/', action: 'update_record', via: [:get, :post]
       end
     end
   end
